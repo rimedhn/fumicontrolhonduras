@@ -62,6 +62,47 @@
             transform: scale(1.1);
         }
 
+        .whatsapp-message {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background-color: white;
+            color: #333;
+            padding: 12px 16px;
+            border-radius: 20px 20px 5px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            font-size: 14px;
+            font-weight: 500;
+            max-width: 200px;
+            animation: bounce 2s infinite;
+            border: 2px solid #25d366;
+        }
+
+        .whatsapp-message::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid white;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
@@ -201,6 +242,14 @@
                 right: 20px;
                 font-size: 24px;
             }
+
+            .whatsapp-message {
+                bottom: 80px;
+                right: 20px;
+                max-width: 160px;
+                font-size: 12px;
+                padding: 10px 12px;
+            }
             
             .carousel-slide {
                 width: 250px;
@@ -256,7 +305,7 @@
     </div>
     <div class="max-w-4xl mx-auto">
      <div class="video-container">
-      <video class="w-full h-64 md:h-80 lg:h-96 object-cover" controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%2384cc16'/%3E%3Ctext x='200' y='140' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🎬 Video Promocional%3C/text%3E%3Ctext x='200' y='170' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3EFUMICONTROL%3C/text%3E%3C/svg%3E"><source src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/Promocional.mp4?raw=true" type="video/mp4"> Tu navegador no soporta videos HTML5.
+      <video class="w-full h-64 md:h-80 lg:h-96 object-cover" controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%2384cc16'/%3E%3Ctext x='200' y='140' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🎬 Video Promocional%3C/text%3E%3Ctext x='200' y='170' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3EFUMICONTROL%3C/text%3E%3C/svg%3E"><source src="https://github.com/rimedhn/fumicontrolhonduras/raw/main/Promocional.mp4" type="video/mp4"> Tu navegador no soporta videos HTML5.
       </video>
       <div class="video-overlay"></div>
      </div>
@@ -270,23 +319,23 @@
    </div>
    <div class="carousel-container relative">
     <div class="carousel-track flex animate-scroll">
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20PROTEJA%20SU%20HOGAR%20Y%20NEGOCIO%20DE%20LAS%20PLAGAS.jpeg?raw=true" alt="Proteja su hogar" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20PROTEJA%20SU%20HOGAR%20Y%20NEGOCIO%20DE%20LAS%20PLAGAS.jpeg?raw=true" alt="Proteja su hogar" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div>
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20RESULTADOS%20INMEDIATOS%20Y%20A%20LARGO%20PLAZO.jpeg?raw=true" alt="Resultados inmediatos" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20RESULTADOS%20INMEDIATOS%20Y%20A%20LARGO%20PLAZO.jpeg?raw=true" alt="Resultados inmediatos" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div>
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1350%20SOLUCIONES%20EXPERTAS.jpeg?raw=true" alt="Soluciones expertas" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1350%20SOLUCIONES%20EXPERTAS.jpeg?raw=true" alt="Soluciones expertas" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div>
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1350%20TU%20HOGAR%20LIBRE%20DE%20PLAGAS.jpeg?raw=true" alt="Hogar libre de plagas" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1350%20TU%20HOGAR%20LIBRE%20DE%20PLAGAS.jpeg?raw=true" alt="Hogar libre de plagas" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div>
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20COFIE%20EN%20NUESTRO%20CONTROL%20EXPERTO.jpeg?raw=true" alt="Control experto" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20COFIE%20EN%20NUESTRO%20CONTROL%20EXPERTO.jpeg?raw=true" alt="Control experto" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div>
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080x1080%20DILE%20ADIOS%20A%20LAS%20NOCHES%20DE%20INSOMNIO.jpeg?raw=true" alt="Noches sin insomnio" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080x1080%20DILE%20ADIOS%20A%20LAS%20NOCHES%20DE%20INSOMNIO.jpeg?raw=true" alt="Noches sin insomnio" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div><!-- Duplicate slides for seamless loop -->
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20PROTEJA%20SU%20HOGAR%20Y%20NEGOCIO%20DE%20LAS%20PLAGAS.jpeg?raw=true" alt="Proteja su hogar" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20PROTEJA%20SU%20HOGAR%20Y%20NEGOCIO%20DE%20LAS%20PLAGAS.jpeg?raw=true" alt="Proteja su hogar" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div>
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20RESULTADOS%20INMEDIATOS%20Y%20A%20LARGO%20PLAZO.jpeg?raw=true" alt="Resultados inmediatos" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20RESULTADOS%20INMEDIATOS%20Y%20A%20LARGO%20PLAZO.jpeg?raw=true" alt="Resultados inmediatos" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div>
-     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1350%20SOLUCIONES%20EXPERTAS.jpeg?raw=true" alt="Soluciones expertas" class="w-full h-60 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="carousel-slide flex-shrink-0 w-80 mx-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1350%20SOLUCIONES%20EXPERTAS.jpeg?raw=true" alt="Soluciones expertas" class="w-full h-96 object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
      </div>
     </div>
    </div>
@@ -324,21 +373,29 @@
     <h2 id="services-title" class="text-4xl font-bold text-center text-gray-800 mb-4">Nuestros Servicios</h2>
     <p class="text-center text-gray-600 mb-12 text-lg">Servicio residencial, comercial e industrial</p>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-     <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20CANSADO%20DE%20LAS%20PLAGAS.jpeg?raw=true" alt="Control de Roedores" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-      <h3 class="text-xl font-bold text-gray-800 mb-3">Control de Roedores</h3>
-      <p class="text-gray-700">Eliminación efectiva de ratas y ratones con métodos seguros y duraderos</p>
+     <div class="bg-gradient-to-br from-green-50 to-green-100 p-3 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20CANSADO%20DE%20LAS%20PLAGAS.jpeg?raw=true" alt="Control de Roedores" class="w-full h-64 object-cover rounded-lg mb-4" style="object-position: center; aspect-ratio: 16/9;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+      <div class="px-3 pb-3">
+       <h3 class="text-xl font-bold text-gray-800 mb-3">Control de Roedores</h3>
+       <p class="text-gray-700">Eliminación efectiva de ratas y ratones con métodos seguros y duraderos</p>
+      </div>
      </div>
-     <div class="bg-gradient-to-br from-lime-50 to-lime-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20NO%20MAS%20PLAGAS.jpeg?raw=true" alt="Control de Mosquitos" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-      <h3 class="text-xl font-bold text-gray-800 mb-3">Control de Mosquitos y Moscas</h3>
-      <p class="text-gray-700">Protección contra mosquitos transmisores de enfermedades y moscas molestas</p>
+     <div class="bg-gradient-to-br from-lime-50 to-lime-100 p-3 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20NO%20MAS%20PLAGAS.jpeg?raw=true" alt="Control de Mosquitos" class="w-full h-64 object-cover rounded-lg mb-4" style="object-position: center; aspect-ratio: 16/9;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+      <div class="px-3 pb-3">
+       <h3 class="text-xl font-bold text-gray-800 mb-3">Control de Mosquitos y Moscas</h3>
+       <p class="text-gray-700">Protección contra mosquitos transmisores de enfermedades y moscas molestas</p>
+      </div>
      </div>
-     <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20DILE%20ADIOS%20A%20LAS%20PLAGAS.jpeg?raw=true" alt="Plagas Domésticas" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-      <h3 class="text-xl font-bold text-gray-800 mb-3">Plagas Domésticas</h3>
-      <p class="text-gray-700">Control de cucarachas, jates, chinches y hormigas en tu hogar</p>
+     <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-3 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20DILE%20ADIOS%20A%20LAS%20PLAGAS.jpeg?raw=true" alt="Plagas Domésticas" class="w-full h-64 object-cover rounded-lg mb-4" style="object-position: center; aspect-ratio: 16/9;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+      <div class="px-3 pb-3">
+       <h3 class="text-xl font-bold text-gray-800 mb-3">Plagas Domésticas</h3>
+       <p class="text-gray-700">Control de cucarachas, jates, chinches y hormigas en tu hogar</p>
+      </div>
      </div>
-     <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20SERVICIO%20ESPECIALIZADO.jpeg?raw=true" alt="Tratamiento de Termitas" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-      <h3 class="text-xl font-bold text-gray-800 mb-3">Tratamiento de Termitas</h3>
-      <p class="text-gray-700">Detección temprana y tratamiento especializado contra termitas</p>
+     <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 p-3 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20SERVICIO%20ESPECIALIZADO.jpeg?raw=true" alt="Tratamiento de Termitas" class="w-full h-64 object-cover rounded-lg mb-4" style="object-position: center; aspect-ratio: 16/9;" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+      <div class="px-3 pb-3">
+       <h3 class="text-xl font-bold text-gray-800 mb-3">Tratamiento de Termitas</h3>
+       <p class="text-gray-700">Detección temprana y tratamiento especializado contra termitas</p>
+      </div>
      </div>
     </div>
     <div class="bg-gradient-to-r from-green-800 to-green-600 text-white p-8 rounded-lg shadow-lg">
@@ -581,11 +638,18 @@
      <h2 class="text-4xl font-bold text-gray-800 mb-4">Servicio Industrial</h2>
      <p class="text-lg text-gray-600">Soluciones especializadas para plantas industriales, bodegas y fábricas</p>
     </div>
-    <div class="max-w-md mx-auto">
-     <div class="video-container">
-      <video id="industrial-video" class="w-full h-96 md:h-[500px] object-cover" controls muted preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 500'%3E%3Crect width='300' height='500' fill='%2384cc16'/%3E%3Ctext x='150' y='240' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🏭 Servicio%3C/text%3E%3Ctext x='150' y='270' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3EIndustrial%3C/text%3E%3C/svg%3E"><source src="https://github.com/rimedhn/fumicontrolhonduras/raw/main/Industrial.mp4" type="video/mp4"> Tu navegador no soporta videos HTML5.
-      </video>
-      <div class="video-overlay"></div>
+    <div class="max-w-6xl mx-auto">
+     <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <div class="video-container">
+       <video id="industrial-video" class="w-full h-96 md:h-[500px] object-cover" controls muted preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 500'%3E%3Crect width='300' height='500' fill='%2384cc16'/%3E%3Ctext x='150' y='240' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🏭 Servicio%3C/text%3E%3Ctext x='150' y='270' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3EIndustrial%3C/text%3E%3C/svg%3E"><source src="https://github.com/rimedhn/fumicontrolhonduras/raw/main/Industrial.mp4" type="video/mp4"> Tu navegador no soporta videos HTML5.
+       </video>
+       <div class="video-overlay"></div>
+      </div>
+      <div class="flex flex-col h-full">
+       <div class="video-container flex-1"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/Control%20de%20plagas%20urbanas.jpg?raw=true" alt="Control de plagas urbanas" class="w-full h-96 md:h-[500px] object-cover rounded-lg shadow-lg" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+        <div class="video-overlay"></div>
+       </div>
+      </div>
      </div>
      <div class="bg-gradient-to-br from-lime-50 to-lime-100 p-8 rounded-lg mt-8">
       <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Estándares Industriales</h3>
@@ -679,7 +743,7 @@
         </div>
         <div><label for="address" class="block text-gray-700 font-medium mb-2">Dirección</label> <input type="text" id="address" name="address" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Dirección completa donde necesita el servicio">
         </div>
-        <div><label for="city" class="block text-gray-700 font-medium mb-2">Ciudad</label> <select id="city" name="city" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"> <option value="">Seleccione su ciudad</option> <option value="Tegucigalpa">Tegucigalpa</option> <option value="Comayagua">Comayagua</option> <option value="Siguatepeque">Siguatepeque</option> <option value="La Paz">La Paz</option> <option value="Intibucá">Intibucá</option> <option value="La Esperanza">La Esperanza</option> <option value="San Pedro Sula">San Pedro Sula</option> <option value="Otra">Otra ciudad</option> </select>
+        <div><label for="city" class="block text-gray-700 font-medium mb-2">Ciudad</label> <select id="city" name="city" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"> <option value="">Seleccione su ciudad</option> <option value="Tegucigalpa">Tegucigalpa</option> <option value="Comayagua">Comayagua</option> <option value="Siguatepeque">Siguatepeque</option> <option value="La Paz">La Paz</option> <option value="Intibucá">Intibucá</option> <option value="La Esperanza">La Esperanza</option> <option value="Otra">Otra ciudad</option> </select>
         </div>
         <div><label for="service" class="block text-gray-700 font-medium mb-2">Tipo de Servicio</label> <select id="service" name="service" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"> <option value="">Seleccione el servicio que necesita</option> <option value="Control de Roedores">Control de Roedores</option> <option value="Control de Mosquitos y Moscas">Control de Mosquitos y Moscas</option> <option value="Plagas Domésticas">Plagas Domésticas (Cucarachas, Jates, Chinches, Hormigas)</option> <option value="Tratamiento de Termitas">Tratamiento de Termitas</option> <option value="Mantenimiento Preventivo">Programa de Mantenimiento Preventivo</option> <option value="Servicio Comercial">Servicio Comercial/Industrial</option> <option value="Evaluación General">Evaluación General</option> </select>
         </div>
@@ -705,7 +769,7 @@
      </div>
      <div>
       <h4 class="text-lg font-bold mb-4">Síguenos</h4>
-      <div id="social-links" class="flex space-x-4"><a href="https://www.facebook.com/people/Fumicontrol-Honduras/61566606119502/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-600 transition duration-300 transform hover:scale-110">
+      <div id="social-links" class="flex space-x-4"><a href="https://www.facebook.com/people/Fumicontrol-Honduras/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-600 transition duration-300 transform hover:scale-110">
         <svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
         </svg></a> <a href="https://www.instagram.com/fumicontrol.honduras/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-600 transition duration-300 transform hover:scale-110">
         <svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -714,11 +778,14 @@
      </div>
     </div>
     <div class="border-t border-gray-800 pt-8 text-center">
-     <p id="footer-text" class="text-gray-400 mb-4">© 2024 FUMICONTROL. Todos los derechos reservados.</p>
+     <p id="footer-text" class="text-gray-400 mb-4">© 2025 FUMICONTROL. Todos los derechos reservados.</p>
      <p class="text-gray-500 text-sm">Desarrollado por <a href="https://www.rimeddigital.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">Rimed Digital</a> | <a href="mailto:gerencia@rimeddigital.com" class="text-blue-400 hover:text-blue-300">gerencia@rimeddigital.com</a> | +504 9359-3126</p>
     </div>
    </div>
-  </footer><!-- WhatsApp Float Button --> <a href="https://wa.me/50489643799" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  </footer><!-- WhatsApp Message Bubble -->
+  <div class="whatsapp-message">
+   💬 Contáctanos por WhatsApp
+  </div><!-- WhatsApp Float Button --> <a href="https://wa.me/50489643799?text=Hola,%20vengo%20de%20tu%20sitio%20web%20y%20me%20interesa%20más%20información%20acerca%20de%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
    <svg viewbox="0 0 32 32" fill="currentColor" width="30" height="30"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.417-5.267-0.321-0.525c-1.331-2.197-2.039-4.722-2.039-7.321 0-7.605 6.195-13.8 13.8-13.8s13.8 6.195 13.8 13.8-6.228 13.867-13.833 13.867zM21.863 18.896c-0.326-0.163-1.933-0.956-2.233-1.065s-0.518-0.163-0.736 0.163c-0.218 0.326-0.847 1.065-1.038 1.283s-0.382 0.244-0.708 0.081c-0.326-0.163-1.375-0.507-2.618-1.617-0.968-0.864-1.622-1.932-1.812-2.258s-0.020-0.502 0.143-0.665c0.146-0.146 0.326-0.382 0.489-0.573s0.218-0.326 0.326-0.544s0.054-0.408-0.027-0.573c-0.081-0.163-0.736-1.775-1.010-2.427s-0.544-0.556-0.736-0.556c-0.191-0.012-0.408-0.012-0.626-0.012s-0.573 0.081-0.873 0.408c-0.3 0.326-1.147 1.119-1.147 2.732s1.174 3.168 1.337 3.386s2.291 3.498 5.551 4.906c0.777 0.326 1.385 0.518 1.858 0.665 0.782 0.244 1.493 0.204 2.056 0.122 0.626-0.095 1.933-0.791 2.203-1.554s0.271-1.419 0.191-1.554c-0.081-0.122-0.3-0.204-0.626-0.367z" />
    </svg></a>
   <script>
@@ -730,7 +797,7 @@
             services_title: "Nuestros Servicios",
             contact_title: "Contáctanos",
             contact_subtitle: "Estamos listos para ayudarte a eliminar cualquier plaga",
-            footer_text: "© 2024 FUMICONTROL. Todos los derechos reservados.",
+            footer_text: "© 2025 FUMICONTROL. Todos los derechos reservados.",
             background_color: "#16a34a",
             surface_color: "#f0fdf4",
             text_color: "#166534",
@@ -944,5 +1011,5 @@
             });
         });
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99b3144a46f831c0',t:'MTc2MjU4NDAzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99b34893a49e31c0',t:'MTc2MjU4NjE3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
