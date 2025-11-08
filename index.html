@@ -74,7 +74,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: #3b82f6;
+            background-color: #84cc16;
             transition: width 0.3s ease;
         }
 
@@ -131,41 +131,66 @@
 
         .service-banner {
             width: 100%;
+            overflow: hidden;
         }
 
         .animate-scroll-right {
-            animation: scrollRight 30s linear infinite;
+            animation: scrollRight 60s linear infinite;
         }
 
         .animate-scroll-left {
-            animation: scrollLeft 25s linear infinite;
+            animation: scrollLeft 65s linear infinite;
         }
 
         @keyframes scrollRight {
             0% {
-                transform: translateX(-100%);
+                transform: translateX(0);
             }
             100% {
-                transform: translateX(100%);
+                transform: translateX(-50%);
             }
         }
 
         @keyframes scrollLeft {
             0% {
-                transform: translateX(100%);
+                transform: translateX(-50%);
             }
             100% {
-                transform: translateX(-100%);
+                transform: translateX(0);
             }
         }
 
         .service-track {
             display: flex;
             white-space: nowrap;
+            gap: 8px;
+            width: max-content;
         }
 
         .service-item {
-            margin-right: 20px;
+            flex-shrink: 0;
+            display: inline-block;
+            margin: 0;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(22, 163, 74, 0.1), rgba(132, 204, 22, 0.1));
+            pointer-events: none;
+            border-radius: 16px;
         }
 
         @media (max-width: 768px) {
@@ -184,6 +209,7 @@
             .service-item {
                 font-size: 14px;
                 padding: 12px 16px;
+                margin-right: 20px;
             }
         }
     </style>
@@ -194,24 +220,50 @@
   <header class="bg-white shadow-md sticky top-0 z-50">
    <nav class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
-     <div class="flex items-center space-x-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1507x1389%20Logo%20Fumicontrol.png?raw=true" alt="FUMICONTROL Logo" class="h-12 w-12 object-contain" onerror="this.src=''; this.alt='Logo no disponible'; this.style.display='none';"> <span id="business-name" class="text-2xl font-bold text-blue-900">FUMICONTROL</span>
+     <div class="flex items-center space-x-4"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1507x1389%20Logo%20Fumicontrol.png?raw=true" alt="FUMICONTROL Logo" class="h-12 w-12 object-contain rounded-xl shadow-md" onerror="this.src=''; this.alt='Logo no disponible'; this.style.display='none';"> <span id="business-name" class="text-2xl font-bold text-green-900">FUMICONTROL</span>
      </div>
-     <div class="hidden md:flex space-x-8"><a href="#inicio" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Inicio</a> <a href="#servicios" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Servicios</a> <a href="#galeria" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Galería</a> <a href="#contacto" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contacto</a>
+     <div class="hidden md:flex space-x-8"><a href="#inicio" class="nav-link text-gray-700 hover:text-green-600 font-medium">Inicio</a> <a href="#servicios" class="nav-link text-gray-700 hover:text-green-600 font-medium">Servicios</a> <a href="#videos" class="nav-link text-gray-700 hover:text-green-600 font-medium">Videos</a> <a href="#galeria" class="nav-link text-gray-700 hover:text-green-600 font-medium">Galería</a> <a href="#contacto" class="nav-link text-gray-700 hover:text-green-600 font-medium">Contacto</a>
      </div><button id="mobile-menu-btn" class="md:hidden text-gray-700">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg></button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2"><a href="#inicio" class="block text-gray-700 hover:text-blue-600 py-2">Inicio</a> <a href="#servicios" class="block text-gray-700 hover:text-blue-600 py-2">Servicios</a> <a href="#galeria" class="block text-gray-700 hover:text-blue-600 py-2">Galería</a> <a href="#contacto" class="block text-gray-700 hover:text-blue-600 py-2">Contacto</a>
+    <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2"><a href="#inicio" class="block text-gray-700 hover:text-green-600 py-2">Inicio</a> <a href="#servicios" class="block text-gray-700 hover:text-green-600 py-2">Servicios</a> <a href="#videos" class="block text-gray-700 hover:text-green-600 py-2">Videos</a> <a href="#galeria" class="block text-gray-700 hover:text-green-600 py-2">Galería</a> <a href="#contacto" class="block text-gray-700 hover:text-green-600 py-2">Contacto</a>
     </div>
    </nav>
-  </header><!-- Hero Section -->
+  </header><!-- Hero Section with Video -->
   <section id="inicio" class="gradient-bg text-white py-20">
-   <div class="container mx-auto px-6 text-center">
-    <h1 id="hero-heading" class="text-5xl md:text-6xl font-bold mb-6">Protección Profesional Contra Plagas</h1>
-    <p id="hero-subtitle" class="text-xl md:text-2xl mb-8 text-blue-100">Soluciones expertas para tu hogar y negocio en San Pedro Sula</p><a href="#contacto" id="cta-button" class="inline-block bg-white text-blue-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition duration-300 shadow-lg">Solicitar Cotización</a>
+   <div class="container mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+     <div class="text-center lg:text-left">
+      <h1 id="hero-heading" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Protección Profesional Contra Plagas</h1>
+      <p id="hero-subtitle" class="text-lg md:text-xl lg:text-2xl mb-8 text-green-100">Soluciones expertas para tu hogar y negocio</p><a href="#contacto" id="cta-button" class="inline-block bg-white text-green-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-green-50 transition duration-300 shadow-lg">Solicitar Cotización</a>
+     </div>
+     <div class="relative">
+      <div class="video-container">
+       <video id="fumigation-video" class="w-full h-64 md:h-80 lg:h-96 object-cover" controls muted preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%2316a34a'/%3E%3Ctext x='200' y='140' text-anchor='middle' fill='white' font-size='20' font-family='Arial'%3E🏠 Proceso de%3C/text%3E%3Ctext x='200' y='170' text-anchor='middle' fill='white' font-size='20' font-family='Arial'%3EFumigación Profesional%3C/text%3E%3C/svg%3E"><source src="https://github.com/rimedhn/fumicontrolhonduras/raw/main/Fumigacion.mp4" type="video/mp4"> Tu navegador no soporta videos HTML5.
+       </video>
+       <div class="video-overlay"></div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Video Promocional Section -->
+  <section class="py-16 bg-white">
+   <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+     <h2 class="text-4xl font-bold text-gray-800 mb-4">Conoce FUMICONTROL</h2>
+     <p class="text-lg text-gray-600">Descubre por qué somos la mejor opción en control de plagas</p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+     <div class="video-container">
+      <video class="w-full h-64 md:h-80 lg:h-96 object-cover" controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%2384cc16'/%3E%3Ctext x='200' y='140' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🎬 Video Promocional%3C/text%3E%3Ctext x='200' y='170' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3EFUMICONTROL%3C/text%3E%3C/svg%3E"><source src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/Promocional.mp4?raw=true" type="video/mp4"> Tu navegador no soporta videos HTML5.
+      </video>
+      <div class="video-overlay"></div>
+     </div>
+    </div>
    </div>
   </section><!-- Image Carousel Banner -->
-  <section class="py-16 bg-white overflow-hidden">
+  <section class="py-16 bg-gray-50 overflow-hidden">
    <div class="container mx-auto px-6 mb-8">
     <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Nuestros Resultados</h2>
     <p class="text-center text-gray-600 text-lg">Casos de éxito en control de plagas</p>
@@ -239,25 +291,25 @@
     </div>
    </div>
   </section><!-- Why Choose Us -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-16 bg-white">
    <div class="container mx-auto px-6">
     <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">¿Por Qué Elegirnos?</h2>
     <div class="grid md:grid-cols-3 gap-8">
-     <div class="bg-white p-8 rounded-lg shadow-md text-center card-hover">
+     <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg shadow-md text-center card-hover">
       <div class="text-5xl mb-4">
        🛡️
       </div>
       <h3 class="text-xl font-bold text-gray-800 mb-3">Servicio Especializado</h3>
       <p class="text-gray-600">Técnicos certificados con años de experiencia en control de plagas urbanas</p>
      </div>
-     <div class="bg-white p-8 rounded-lg shadow-md text-center card-hover">
+     <div class="bg-gradient-to-br from-lime-50 to-lime-100 p-8 rounded-lg shadow-md text-center card-hover">
       <div class="text-5xl mb-4">
        ⚡
       </div>
       <h3 class="text-xl font-bold text-gray-800 mb-3">Resultados Inmediatos</h3>
       <p class="text-gray-600">Soluciones efectivas con resultados visibles desde la primera aplicación</p>
      </div>
-     <div class="bg-white p-8 rounded-lg shadow-md text-center card-hover">
+     <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-lg shadow-md text-center card-hover">
       <div class="text-5xl mb-4">
        ✅
       </div>
@@ -267,16 +319,16 @@
     </div>
    </div>
   </section><!-- Services Section -->
-  <section id="servicios" class="py-16 bg-white">
+  <section id="servicios" class="py-16 bg-gray-50">
    <div class="container mx-auto px-6">
     <h2 id="services-title" class="text-4xl font-bold text-center text-gray-800 mb-4">Nuestros Servicios</h2>
     <p class="text-center text-gray-600 mb-12 text-lg">Servicio residencial, comercial e industrial</p>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-     <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20CANSADO%20DE%20LAS%20PLAGAS.jpeg?raw=true" alt="Control de Roedores" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20CANSADO%20DE%20LAS%20PLAGAS.jpeg?raw=true" alt="Control de Roedores" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
       <h3 class="text-xl font-bold text-gray-800 mb-3">Control de Roedores</h3>
       <p class="text-gray-700">Eliminación efectiva de ratas y ratones con métodos seguros y duraderos</p>
      </div>
-     <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20NO%20MAS%20PLAGAS.jpeg?raw=true" alt="Control de Mosquitos" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="bg-gradient-to-br from-lime-50 to-lime-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20NO%20MAS%20PLAGAS.jpeg?raw=true" alt="Control de Mosquitos" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
       <h3 class="text-xl font-bold text-gray-800 mb-3">Control de Mosquitos y Moscas</h3>
       <p class="text-gray-700">Protección contra mosquitos transmisores de enfermedades y moscas molestas</p>
      </div>
@@ -284,12 +336,12 @@
       <h3 class="text-xl font-bold text-gray-800 mb-3">Plagas Domésticas</h3>
       <p class="text-gray-700">Control de cucarachas, jates, chinches y hormigas en tu hogar</p>
      </div>
-     <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20SERVICIO%20ESPECIALIZADO.jpeg?raw=true" alt="Tratamiento de Termitas" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+     <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-lg shadow-md card-hover"><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/1080X1080%20SERVICIO%20ESPECIALIZADO.jpeg?raw=true" alt="Tratamiento de Termitas" class="w-full h-32 object-cover rounded-lg mb-4" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
       <h3 class="text-xl font-bold text-gray-800 mb-3">Tratamiento de Termitas</h3>
       <p class="text-gray-700">Detección temprana y tratamiento especializado contra termitas</p>
      </div>
     </div>
-    <div class="bg-blue-900 text-white p-8 rounded-lg shadow-lg">
+    <div class="bg-gradient-to-r from-green-800 to-green-600 text-white p-8 rounded-lg shadow-lg">
      <h3 class="text-2xl font-bold mb-4 text-center">Programas de Mantenimiento Preventivo</h3>
      <div class="grid md:grid-cols-3 gap-6 text-center">
       <div>
@@ -313,106 +365,233 @@
      </div>
     </div>
    </div>
-  </section><!-- Service Banners -->
+  </section><!-- Service Banners with More Content -->
   <section class="py-8 bg-gray-100 overflow-hidden"><!-- First Banner - Moving Right -->
    <div class="service-banner mb-4">
-    <div class="service-track flex animate-scroll-right">
-     <div class="service-item flex-shrink-0 bg-green-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+    <div class="service-track animate-scroll-right"><!-- First set -->
+     <div class="service-item bg-green-600 text-white">
       🐀 Control de Roedores
      </div>
-     <div class="service-item flex-shrink-0 bg-lime-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-lime-600 text-white">
       🦟 Control de Mosquitos
      </div>
-     <div class="service-item flex-shrink-0 bg-yellow-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-yellow-500 text-white">
       🪳 Plagas Domésticas
      </div>
-     <div class="service-item flex-shrink-0 bg-emerald-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-emerald-600 text-white">
       🐛 Tratamiento de Termitas
      </div>
-     <div class="service-item flex-shrink-0 bg-green-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-green-500 text-white">
       🏠 Servicio Residencial
      </div>
-     <div class="service-item flex-shrink-0 bg-lime-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-lime-500 text-white">
       🏢 Servicio Comercial
      </div>
-     <div class="service-item flex-shrink-0 bg-yellow-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-yellow-600 text-white">
       🏭 Servicio Industrial
      </div>
-     <div class="service-item flex-shrink-0 bg-emerald-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-emerald-500 text-white">
       📍 Tegucigalpa
      </div>
-     <div class="service-item flex-shrink-0 bg-green-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-green-600 text-white">
       📍 Comayagua
      </div>
-     <div class="service-item flex-shrink-0 bg-lime-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-lime-600 text-white">
       📍 Siguatepeque
-     </div><!-- Duplicate for seamless loop -->
-     <div class="service-item flex-shrink-0 bg-green-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     </div>
+     <div class="service-item bg-yellow-500 text-white">
+      🛡️ Garantía de Servicio
+     </div>
+     <div class="service-item bg-emerald-600 text-white">
+      ⚡ Respuesta Rápida
+     </div>
+     <div class="service-item bg-green-500 text-white">
+      🔬 Productos Certificados
+     </div>
+     <div class="service-item bg-lime-500 text-white">
+      👨‍🔬 Técnicos Expertos
+     </div>
+     <div class="service-item bg-yellow-600 text-white">
+      📞 Atención 24/7
+     </div><!-- Duplicate set for seamless loop -->
+     <div class="service-item bg-green-600 text-white">
       🐀 Control de Roedores
      </div>
-     <div class="service-item flex-shrink-0 bg-lime-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-lime-600 text-white">
       🦟 Control de Mosquitos
      </div>
-     <div class="service-item flex-shrink-0 bg-yellow-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-yellow-500 text-white">
       🪳 Plagas Domésticas
      </div>
-     <div class="service-item flex-shrink-0 bg-emerald-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-emerald-600 text-white">
       🐛 Tratamiento de Termitas
      </div>
-     <div class="service-item flex-shrink-0 bg-green-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-green-500 text-white">
       🏠 Servicio Residencial
      </div>
-     <div class="service-item flex-shrink-0 bg-lime-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-lime-500 text-white">
       🏢 Servicio Comercial
+     </div>
+     <div class="service-item bg-yellow-600 text-white">
+      🏭 Servicio Industrial
+     </div>
+     <div class="service-item bg-emerald-500 text-white">
+      📍 Tegucigalpa
+     </div>
+     <div class="service-item bg-green-600 text-white">
+      📍 Comayagua
+     </div>
+     <div class="service-item bg-lime-600 text-white">
+      📍 Siguatepeque
+     </div>
+     <div class="service-item bg-yellow-500 text-white">
+      🛡️ Garantía de Servicio
+     </div>
+     <div class="service-item bg-emerald-600 text-white">
+      ⚡ Respuesta Rápida
+     </div>
+     <div class="service-item bg-green-500 text-white">
+      🔬 Productos Certificados
+     </div>
+     <div class="service-item bg-lime-500 text-white">
+      👨‍🔬 Técnicos Expertos
+     </div>
+     <div class="service-item bg-yellow-600 text-white">
+      📞 Atención 24/7
      </div>
     </div>
    </div><!-- Second Banner - Moving Left -->
    <div class="service-banner">
-    <div class="service-track flex animate-scroll-left">
-     <div class="service-item flex-shrink-0 bg-yellow-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+    <div class="service-track animate-scroll-left"><!-- First set -->
+     <div class="service-item bg-yellow-500 text-white">
       ⚡ Resultados Inmediatos
      </div>
-     <div class="service-item flex-shrink-0 bg-green-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-green-500 text-white">
       🛡️ Insumos de Calidad
      </div>
-     <div class="service-item flex-shrink-0 bg-lime-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-lime-500 text-white">
       🔄 Mantenimiento Preventivo
      </div>
-     <div class="service-item flex-shrink-0 bg-emerald-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-emerald-500 text-white">
       🎯 Trampas Especializadas
      </div>
-     <div class="service-item flex-shrink-0 bg-yellow-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-yellow-600 text-white">
       📍 Cebaderos Estratégicos
      </div>
-     <div class="service-item flex-shrink-0 bg-green-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-green-600 text-white">
       📍 La Paz
      </div>
-     <div class="service-item flex-shrink-0 bg-lime-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-lime-600 text-white">
       📍 Intibucá
      </div>
-     <div class="service-item flex-shrink-0 bg-emerald-600 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-emerald-600 text-white">
       📍 La Esperanza
      </div>
-     <div class="service-item flex-shrink-0 bg-yellow-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
-      📍 San Pedro Sula
-     </div><!-- Duplicate for seamless loop -->
-     <div class="service-item flex-shrink-0 bg-yellow-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-yellow-500 text-white">
+      📍 Tegucigalpa
+     </div>
+     <div class="service-item bg-green-500 text-white">
+      💯 Satisfacción Garantizada
+     </div>
+     <div class="service-item bg-lime-500 text-white">
+      🌿 Productos Ecológicos
+     </div>
+     <div class="service-item bg-emerald-500 text-white">
+      🏆 15 Años de Experiencia
+     </div>
+     <div class="service-item bg-yellow-600 text-white">
+      🔍 Inspección Gratuita
+     </div>
+     <div class="service-item bg-green-600 text-white">
+      💰 Precios Competitivos
+     </div>
+     <div class="service-item bg-lime-600 text-white">
+      🚀 Tecnología Avanzada
+     </div><!-- Duplicate set for seamless loop -->
+     <div class="service-item bg-yellow-500 text-white">
       ⚡ Resultados Inmediatos
      </div>
-     <div class="service-item flex-shrink-0 bg-green-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-green-500 text-white">
       🛡️ Insumos de Calidad
      </div>
-     <div class="service-item flex-shrink-0 bg-lime-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-lime-500 text-white">
       🔄 Mantenimiento Preventivo
      </div>
-     <div class="service-item flex-shrink-0 bg-emerald-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+     <div class="service-item bg-emerald-500 text-white">
       🎯 Trampas Especializadas
+     </div>
+     <div class="service-item bg-yellow-600 text-white">
+      📍 Cebaderos Estratégicos
+     </div>
+     <div class="service-item bg-green-600 text-white">
+      📍 La Paz
+     </div>
+     <div class="service-item bg-lime-600 text-white">
+      📍 Intibucá
+     </div>
+     <div class="service-item bg-emerald-600 text-white">
+      📍 La Esperanza
+     </div>
+     <div class="service-item bg-yellow-500 text-white">
+      📍 Tegucigalpa
+     </div>
+     <div class="service-item bg-green-500 text-white">
+      💯 Satisfacción Garantizada
+     </div>
+     <div class="service-item bg-lime-500 text-white">
+      🌿 Productos Ecológicos
+     </div>
+     <div class="service-item bg-emerald-500 text-white">
+      🏆 15 Años de Experiencia
+     </div>
+     <div class="service-item bg-yellow-600 text-white">
+      🔍 Inspección Gratuita
+     </div>
+     <div class="service-item bg-green-600 text-white">
+      💰 Precios Competitivos
+     </div>
+     <div class="service-item bg-lime-600 text-white">
+      🚀 Tecnología Avanzada
      </div>
     </div>
    </div>
-  </section><!-- Services Section -->
-  <section id="servicios" class="py-16 bg-white">
+  </section><!-- Commercial Video Section -->
+  <section id="videos" class="py-16 bg-white">
    <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+     <h2 class="text-4xl font-bold text-gray-800 mb-4">Servicio Comercial</h2>
+     <p class="text-lg text-gray-600">Protección integral para restaurantes, hoteles, oficinas y centros comerciales</p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+     <div class="video-container">
+      <video id="commercial-video" class="w-full h-64 md:h-80 lg:h-96 object-cover" controls muted preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%2316a34a'/%3E%3Ctext x='200' y='140' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🏢 Servicio%3C/text%3E%3Ctext x='200' y='170' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3EComercial%3C/text%3E%3C/svg%3E"><source src="https://github.com/rimedhn/fumicontrolhonduras/raw/main/Comercial.mp4" type="video/mp4"> Tu navegador no soporta videos HTML5.
+      </video>
+      <div class="video-overlay"></div>
+     </div>
+     <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg mt-8">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Especialistas en Negocios</h3>
+      <p class="text-gray-700 text-center text-lg">Mantenemos tu negocio libre de plagas con tratamientos discretos y efectivos. Protegemos la reputación de tu empresa con soluciones profesionales.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Industrial Video Section -->
+  <section class="py-16 bg-gray-50">
+   <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+     <h2 class="text-4xl font-bold text-gray-800 mb-4">Servicio Industrial</h2>
+     <p class="text-lg text-gray-600">Soluciones especializadas para plantas industriales, bodegas y fábricas</p>
+    </div>
+    <div class="max-w-md mx-auto">
+     <div class="video-container">
+      <video id="industrial-video" class="w-full h-96 md:h-[500px] object-cover" controls muted preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 500'%3E%3Crect width='300' height='500' fill='%2384cc16'/%3E%3Ctext x='150' y='240' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🏭 Servicio%3C/text%3E%3Ctext x='150' y='270' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3EIndustrial%3C/text%3E%3C/svg%3E"><source src="https://github.com/rimedhn/fumicontrolhonduras/raw/main/Industrial.mp4" type="video/mp4"> Tu navegador no soporta videos HTML5.
+      </video>
+      <div class="video-overlay"></div>
+     </div>
+     <div class="bg-gradient-to-br from-lime-50 to-lime-100 p-8 rounded-lg mt-8">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Estándares Industriales</h3>
+      <p class="text-gray-700 text-center text-lg">Cumplimos con los más altos estándares de seguridad y calidad industrial. Protección especializada para entornos de producción.</p>
+     </div>
+    </div>
    </div>
   </section><!-- Gallery Section -->
   <section id="galeria" class="py-16 bg-gray-50">
@@ -448,39 +627,49 @@
   </section><!-- Contact Section -->
   <section id="contacto" class="py-16 bg-white">
    <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-6xl mx-auto">
      <h2 id="contact-title" class="text-4xl font-bold text-center text-gray-800 mb-4">Contáctanos</h2>
      <p id="contact-subtitle" class="text-center text-gray-600 mb-12 text-lg">Estamos listos para ayudarte a eliminar cualquier plaga</p>
-     <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-blue-50 p-8 rounded-lg">
-       <h3 class="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h3>
-       <div class="space-y-4">
-        <div class="flex items-start"><span class="text-2xl mr-3">📱</span>
-         <div>
-          <p class="font-semibold text-gray-800">WhatsApp</p>
-          <p class="text-gray-700">+504 8964-3799</p>
+     <div class="grid lg:grid-cols-2 gap-8"><!-- Contact Info Column -->
+      <div class="space-y-8"><!-- Contact Information -->
+       <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h3>
+        <div class="space-y-4">
+         <div class="flex items-start"><span class="text-2xl mr-3">📱</span>
+          <div>
+           <p class="font-semibold text-gray-800">WhatsApp</p>
+           <p class="text-gray-700">+504 8964-3799</p>
+          </div>
+         </div>
+         <div class="flex items-start"><span class="text-2xl mr-3">☎️</span>
+          <div>
+           <p class="font-semibold text-gray-800">Teléfono</p>
+           <p class="text-gray-700">9838-7262</p>
+          </div>
+         </div>
+         <div class="flex items-start"><span class="text-2xl mr-3">✉️</span>
+          <div>
+           <p class="font-semibold text-gray-800">Email</p>
+           <p class="text-gray-700">fumicontrol2024@gmail.com</p>
+          </div>
+         </div>
+         <div class="flex items-start"><span class="text-2xl mr-3">📍</span>
+          <div>
+           <p class="font-semibold text-gray-800">Dirección</p>
+           <p class="text-gray-700">Cerro grande zona 2 bloque 38, casa#20, Tegucigalpa</p>
+          </div>
          </div>
         </div>
-        <div class="flex items-start"><span class="text-2xl mr-3">☎️</span>
-         <div>
-          <p class="font-semibold text-gray-800">Teléfono</p>
-          <p class="text-gray-700">9838-7262</p>
-         </div>
+       </div><!-- Google Map -->
+       <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+        <div class="p-4 bg-gradient-to-r from-green-600 to-lime-500 text-white">
+         <h3 class="text-xl font-bold">📍 Nuestra Ubicación</h3>
+         <p class="text-sm opacity-90">Tegucigalpa, Honduras</p>
         </div>
-        <div class="flex items-start"><span class="text-2xl mr-3">✉️</span>
-         <div>
-          <p class="font-semibold text-gray-800">Email</p>
-          <p class="text-gray-700">fumicontrol2024@gmail.com</p>
-         </div>
-        </div>
-        <div class="flex items-start"><span class="text-2xl mr-3">📍</span>
-         <div>
-          <p class="font-semibold text-gray-800">Dirección</p>
-          <p class="text-gray-700">Cerro grande zona 2 bloque 38, casa#20, San Pedro Sula</p>
-         </div>
+        <div class="h-80"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.123456789!2d-87.2063789!3d14.0723123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa30c7d7c5555%3A0x5a5a5a5a5a5a5a5a!2sTegucigalpa%2C%20Honduras!5e0!3m2!1ses!2shn!4v1640995200000!5m2!1ses!2shn" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de FUMICONTROL en Tegucigalpa"> </iframe>
         </div>
        </div>
-      </div>
+      </div><!-- Contact Form -->
       <div class="bg-white p-8 rounded-lg shadow-md">
        <h3 class="text-2xl font-bold text-gray-800 mb-6">Envíanos un Mensaje</h3>
        <form id="contact-form" class="space-y-4">
@@ -506,7 +695,7 @@
    <div class="container mx-auto px-6">
     <div class="grid md:grid-cols-3 gap-8 mb-8">
      <div><img src="https://github.com/rimedhn/fumicontrolhonduras/blob/main/Logo%20largo.jpeg?raw=true" alt="FUMICONTROL Logo" class="h-16 mb-4 object-contain rounded-lg" onerror="this.src=''; this.alt='Logo no disponible'; this.style.display='none';">
-      <p class="text-gray-400">Control profesional de plagas en San Pedro Sula</p>
+      <p class="text-gray-400">Control profesional de plagas en Honduras</p>
      </div>
      <div>
       <h4 class="text-lg font-bold mb-4">Contacto</h4>
@@ -516,7 +705,7 @@
      </div>
      <div>
       <h4 class="text-lg font-bold mb-4">Síguenos</h4>
-      <div id="social-links" class="flex space-x-4"><a href="https://www.facebook.com/people/Fumicontrol-Honduras/. /?_rdr" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-600 transition duration-300 transform hover:scale-110">
+      <div id="social-links" class="flex space-x-4"><a href="https://www.facebook.com/people/Fumicontrol-Honduras/61566606119502/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-600 transition duration-300 transform hover:scale-110">
         <svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
         </svg></a> <a href="https://www.instagram.com/fumicontrol.honduras/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-600 transition duration-300 transform hover:scale-110">
         <svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -530,13 +719,13 @@
     </div>
    </div>
   </footer><!-- WhatsApp Float Button --> <a href="https://wa.me/50489643799" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-   <svg viewbox="0 0 32 32" fill="currentColor" width="30" height="30"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.417-5.267-0.321-0.525c-1.331-2.197-2.039-4.722-2.039-7.321 0-7.605 6.195-13.8 13.8-13.8s13.8 6.195 13.8 13.8-6.228 13.867-13.833 13.867zM21.863 18.896c-0.326-0.163-1.933-0.956-2.233-1.065s-0.518-0.163-0.736 0.163c-0.218 0.326-0.847 1.065-1.038 1.283s-0.382 0.244-0.708 0.081c-0.326-0.163-1.375-0.507-2.618-1.617-0.968-0.864-1.622-1.932-1.812-2.258s-0.020-0.502 0.143-0.665c0.146-0.146 0.326-0.382 0.489-0.573s0.218-0.326 0.326-0.544 0.054-0.408-0.027-0.573c-0.081-0.163-0.736-1.775-1.010-2.427s-0.544-0.556-0.736-0.556c-0.191-0.012-0.408-0.012-0.626-0.012s-0.573 0.081-0.873 0.408c-0.3 0.326-1.147 1.119-1.147 2.732s1.174 3.168 1.337 3.386 2.291 3.498 5.551 4.906c0.777 0.326 1.385 0.518 1.858 0.665 0.782 0.244 1.493 0.204 2.056 0.122 0.626-0.095 1.933-0.791 2.203-1.554s0.271-1.419 0.191-1.554c-0.081-0.122-0.3-0.204-0.626-0.367z" />
+   <svg viewbox="0 0 32 32" fill="currentColor" width="30" height="30"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.417-5.267-0.321-0.525c-1.331-2.197-2.039-4.722-2.039-7.321 0-7.605 6.195-13.8 13.8-13.8s13.8 6.195 13.8 13.8-6.228 13.867-13.833 13.867zM21.863 18.896c-0.326-0.163-1.933-0.956-2.233-1.065s-0.518-0.163-0.736 0.163c-0.218 0.326-0.847 1.065-1.038 1.283s-0.382 0.244-0.708 0.081c-0.326-0.163-1.375-0.507-2.618-1.617-0.968-0.864-1.622-1.932-1.812-2.258s-0.020-0.502 0.143-0.665c0.146-0.146 0.326-0.382 0.489-0.573s0.218-0.326 0.326-0.544s0.054-0.408-0.027-0.573c-0.081-0.163-0.736-1.775-1.010-2.427s-0.544-0.556-0.736-0.556c-0.191-0.012-0.408-0.012-0.626-0.012s-0.573 0.081-0.873 0.408c-0.3 0.326-1.147 1.119-1.147 2.732s1.174 3.168 1.337 3.386s2.291 3.498 5.551 4.906c0.777 0.326 1.385 0.518 1.858 0.665 0.782 0.244 1.493 0.204 2.056 0.122 0.626-0.095 1.933-0.791 2.203-1.554s0.271-1.419 0.191-1.554c-0.081-0.122-0.3-0.204-0.626-0.367z" />
    </svg></a>
   <script>
         const defaultConfig = {
             business_name: "FUMICONTROL",
             hero_heading: "Protección Profesional Contra Plagas",
-            hero_subtitle: "Soluciones expertas para tu hogar y negocio en San Pedro Sula",
+            hero_subtitle: "Soluciones expertas para tu hogar y negocio",
             cta_button: "Solicitar Cotización",
             services_title: "Nuestros Servicios",
             contact_title: "Contáctanos",
@@ -755,5 +944,5 @@
             });
         });
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99b276e6a16831c0',t:'MTc2MjU3NzU4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99b3144a46f831c0',t:'MTc2MjU4NDAzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
